@@ -1,0 +1,318 @@
+/* Theme Variables */
+:root {
+    /* Light theme */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #2d1832;
+    --text-secondary: #4a2757;
+    --accent-color: #8e44ad;
+    --accent-color-light: #9b59b6;
+    --accent-gradient: linear-gradient(135deg, #8e44ad, #9b59b6);
+    --card-bg: #ffffff;
+    --card-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    --nav-bg: rgba(255, 255, 255, 0.95);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #e1e1e1;
+    --accent-color: #9b59b6;
+    --accent-color-light: #a66bbe;
+    --accent-gradient: linear-gradient(135deg, #9b59b6, #a66bbe);
+    --card-bg: #2d2d2d;
+    --card-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    --nav-bg: rgba(26, 26, 26, 0.95);
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navigation */
+header {
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo Styles */
+.logo {
+    height: 40px;
+}
+
+.logo img {
+    height: 100%;
+    width: auto;
+}
+
+.logo-light {
+    display: block;
+}
+
+.logo-dark {
+    display: none;
+}
+
+[data-theme="dark"] .logo-light {
+    display: none;
+}
+
+[data-theme="dark"] .logo-dark {
+    display: block;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: var(--accent-gradient);
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    background: var(--accent-gradient);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 6rem 1rem 3rem;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1) 0%, transparent 60%);
+    z-index: 1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+.hero > * {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.8rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+/* Common Section Styles */
+section {
+    padding: 6rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2.5rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent-gradient);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* About Section */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Offerings Section */
+.offerings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.offering-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.offering-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-gradient);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.offering-card:hover {
+    transform: translateY(-5px);
+}
+
+.offering-card:hover::before {
+    transform: scaleX(1);
+}
+
+.offering-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Team Section */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.team-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(142, 68, 173, 0.2);
+}
+
+.team-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.team-card .role {
+    color: var(--text-secondary);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.founder {
+    border: 2px solid var(--accent-color);
+    background: linear-gradient(to bottom right, var(--card-bg), var(--bg-secondary));
+}
+
+/* Footer */
+footer {
+    background: var(--bg-secondary);
+    height: 4rem;
+    margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .hero p {
+        font-size: 1.4rem;
+    }
+    
+    section {
+        padding: 4rem 5%;
+    }
+    
+    .team-grid, .offerings-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+}
