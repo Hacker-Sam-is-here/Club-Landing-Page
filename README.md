@@ -1,6 +1,6 @@
-# EmergeTech Hub Landing Page
+# Quantica Hub Landing Page
 
-A landing page for EmergeTech Hub, a college club.
+A landing page for Quantica, a college club.
 
 ## Features
 
